@@ -1,12 +1,14 @@
-#include "simsSystem.h"
+#include "system.h"
+#include "studentInfo.h"
+#include "accountInfo.h"
 
 int main(int argc,char* argv[]) {
-	pUSER_ACCOUNT pUser_Account_Head=NULL;
-	pUSER_INFO pUser_Info_Head = NULL;
+	pUserAccountStruct pUser_Account_Head=NULL;
+	pStudentInfoStruct pUser_Info_Head = NULL;
 	systemInit(argv[1], argv[2], &pUser_Account_Head, &pUser_Info_Head);
 systemBegin:
 	system("cls");//清屏 
-	printTitle();
+	printSystemTitle();
 	char user_name[USER_NAME_LEN];
 	char user_pwd[USER_PWD_LEN];
 	printLogin(user_name, user_pwd);
@@ -14,13 +16,13 @@ systemBegin:
 	if (user_role ==0) {//
 userMenuBegin:
 		system("cls");//清屏 
-		printTitle();
-		printUserMenu();
+		printSystemTitle();
+		printStudentMenu();
 		rewind(stdin);
 		int select;
 		printf("请选择要进行的操作:");
 		scanf("%d",&select);
-		controlByUser(select, &pUser_Account_Head, &pUser_Info_Head);
+		controlByStudent(select, &pUser_Info_Head);
 		if (select == 1||select==2) {
 			printf("------------:按回车返回上一级");
 			rewind(stdin);
@@ -34,7 +36,7 @@ userMenuBegin:
 	}else if (user_role == 1) {
 managerMenuBegin:
 		system("cls");//清屏 
-		printTitle();
+		printSystemTitle();
 		printManagerMenu();
 		rewind(stdin);
 		int select;
