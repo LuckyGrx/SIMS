@@ -23,3 +23,11 @@ Student Information Management System    学生信息管理系统
   	1）USER_ACCOUNT.txt  存放用户账户信息
 		
   	2）USER_INFO.txt     存放学生信息
+
+2、系统模块设计
+	
+	1)预处理模块
+	
+	2)登陆模块
+	
+	
