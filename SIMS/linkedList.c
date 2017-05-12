@@ -1,9 +1,9 @@
-#include"simsSystem.h"
+#include"linkedList.h"
 /*
 用户账号链表头插法
 */
-void headInsertOfUserAccount(pUSER_ACCOUNT* ppHead, pUSER_ACCOUNT user_account) {
-	pUSER_ACCOUNT pNew = (pUSER_ACCOUNT)malloc(sizeof(USER_ACCOUNT));
+void headInsertOfUserAccount(pUserAccountStruct* ppHead, pUserAccountStruct user_account) {
+	pUserAccountStruct pNew = (pUserAccountStruct)malloc(sizeof(userAccountStruct));
 	strcpy(pNew->userName ,user_account->userName);
 	strcpy(pNew->userPwd ,user_account->userPwd);
 	pNew->userRole = user_account->userRole;
@@ -18,8 +18,8 @@ void headInsertOfUserAccount(pUSER_ACCOUNT* ppHead, pUSER_ACCOUNT user_account) 
 /*
 打印用户账号
 */
-void printUserAccount(pUSER_ACCOUNT* ppHead) {
-	pUSER_ACCOUNT pCurrent = *ppHead;
+void printUserAccount(pUserAccountStruct* ppHead) {
+	pUserAccountStruct pCurrent = *ppHead;
 	while (pCurrent != NULL) {
 		printf("\t\t\t\t%s\t\t%s\t\t%s\n", pCurrent->userName, pCurrent->userPwd, pCurrent->userRole == 0 ? "普通用户" : "管理员");
 		pCurrent = pCurrent->next;
@@ -29,8 +29,8 @@ void printUserAccount(pUSER_ACCOUNT* ppHead) {
 更新用户账号
 更新成功返回1，更新失败返回0
 */
-int updateLinkedUserAccount(pUSER_ACCOUNT* ppHead,pUSER_ACCOUNT pUserAccount) {
-	pUSER_ACCOUNT pCurrent = *ppHead;
+int updateListUserAccount(pUserAccountStruct* ppHead,pUserAccountStruct pUserAccount) {
+	pUserAccountStruct pCurrent = *ppHead;
 	while (pCurrent != NULL) {
 		if (strcmp(pCurrent->userName,pUserAccount->userName)==0) {
 			strcpy(pCurrent->userPwd, pUserAccount->userPwd);
@@ -45,9 +45,9 @@ int updateLinkedUserAccount(pUSER_ACCOUNT* ppHead,pUSER_ACCOUNT pUserAccount) {
 删除用户账号
 删除成功返回1，删除失败返回0
 */
-int deleteLinkedUserAccount(pUSER_ACCOUNT* ppHead, char* userName) {
-	pUSER_ACCOUNT pCurrent = *ppHead;
-	pUSER_ACCOUNT pPrevious = *ppHead;
+int deleteListUserAccount(pUserAccountStruct* ppHead, char* userName) {
+	pUserAccountStruct pCurrent = *ppHead;
+	pUserAccountStruct pPrevious = *ppHead;
 	if (NULL == pCurrent)
 		return 0;
 	else if (strcmp(userName, (*ppHead)->userName) == 0) {
@@ -73,10 +73,11 @@ int deleteLinkedUserAccount(pUSER_ACCOUNT* ppHead, char* userName) {
 	return 0;
 }
 /*
-链表是否包含该账号 包含1，不包含返回0
+链表是否包含该账号 
+包含1，不包含返回0
 */
-int isListContainUserAccount(pUSER_ACCOUNT* ppHead, char* userName) {
-	pUSER_ACCOUNT pCurrent = *ppHead;
+int isListContainUserAccount(pUserAccountStruct* ppHead, char* userName) {
+	pUserAccountStruct pCurrent = *ppHead;
 	while (pCurrent != NULL) {
 		if (strcmp(userName, pCurrent->userName) == 0)
 			return 1;
@@ -85,15 +86,15 @@ int isListContainUserAccount(pUSER_ACCOUNT* ppHead, char* userName) {
 	return 0;
 }
 /*
-用户信息链表头插法
+学生信息链表头插法
 */
-void headInsertOfUserInfo(pUSER_INFO* ppHead, pUSER_INFO user_info) {
-	pUSER_INFO pNew = (pUSER_INFO)malloc(sizeof(USER_INFO));
-	pNew->user_id = user_info->user_id;
-	strcpy(pNew->user_name, user_info->user_name);
-	pNew->user_course1_score = user_info->user_course1_score;
-	pNew->user_course2_score = user_info->user_course2_score;
-	pNew->user_course3_score = user_info->user_course3_score;
+void headInsertOfStudentInfo(pStudentInfoStruct* ppHead, pStudentInfoStruct user_info) {
+	pStudentInfoStruct pNew = (pStudentInfoStruct)malloc(sizeof(studentInfoStruct));
+	pNew->userId = user_info->userId;
+	strcpy(pNew->userName, user_info->userName);
+	pNew->userCourse1Score = user_info->userCourse1Score;
+	pNew->userCourse2Score = user_info->userCourse2Score;
+	pNew->userCourse3Score = user_info->userCourse3Score;
 	pNew->next = NULL;
 	if (NULL == *ppHead)
 		*ppHead = pNew;
@@ -103,27 +104,27 @@ void headInsertOfUserInfo(pUSER_INFO* ppHead, pUSER_INFO user_info) {
 	}
 }
 /*
-打印用户信息
+打印学生信息
 */
-void printUserInfo(pUSER_INFO* ppHead) {
-	pUSER_INFO pCurrent = *ppHead;
+void printStudentInfo(pStudentInfoStruct* ppHead) {
+	pStudentInfoStruct pCurrent = *ppHead;
 	while (pCurrent != NULL) {
-		printf("\t\t%d\t\t%s\t\t%5.2f\t\t%5.2f\t\t%5.2f\n", pCurrent->user_id, pCurrent->user_name, pCurrent->user_course1_score, pCurrent->user_course2_score, pCurrent->user_course3_score);
+		printf("\t\t%d\t\t%s\t\t%5.2f\t\t%5.2f\t\t%5.2f\n", pCurrent->userId, pCurrent->userName, pCurrent->userCourse1Score, pCurrent->userCourse2Score, pCurrent->userCourse3Score);
 		pCurrent = pCurrent->next;
 	}
 }
 /*
-更新用户信息
+更新学生信息
 存在该更新用户返回1，不存在返回0
 */
-int updateLinkedUserInfo(pUSER_INFO* ppHead, pUSER_INFO pUserInfo) {
-	pUSER_INFO pCurrent = *ppHead;
+int updateListStudentInfo(pStudentInfoStruct* ppHead, pStudentInfoStruct pUserInfo) {
+	pStudentInfoStruct pCurrent = *ppHead;
 	while (pCurrent != NULL) {
-		if (pCurrent->user_id == pUserInfo->user_id) {
-			strcpy(pCurrent->user_name, pUserInfo->user_name);
-			pCurrent->user_course1_score = pUserInfo->user_course1_score;
-			pCurrent->user_course2_score = pUserInfo->user_course2_score;
-			pCurrent->user_course3_score = pUserInfo->user_course3_score;
+		if (pCurrent->userId == pUserInfo->userId) {
+			strcpy(pCurrent->userName, pUserInfo->userName);
+			pCurrent->userCourse1Score = pUserInfo->userCourse1Score;
+			pCurrent->userCourse2Score = pUserInfo->userCourse2Score;
+			pCurrent->userCourse3Score = pUserInfo->userCourse3Score;
 			return 1;
 		}
 		pCurrent = pCurrent->next;
@@ -131,15 +132,15 @@ int updateLinkedUserInfo(pUSER_INFO* ppHead, pUSER_INFO pUserInfo) {
 	return 0;
 }
 /*
-删除用户信息  
+删除学生信息  
 删除成功返回1，删除失败返回0
 */
-int deleteLinkedUserInfo(pUSER_INFO* ppHead,int userId) {
-	pUSER_INFO pCurrent = *ppHead;
-	pUSER_INFO pPrevious = *ppHead;
+int deleteListStudentInfo(pStudentInfoStruct* ppHead,int userId) {
+	pStudentInfoStruct pCurrent = *ppHead;
+	pStudentInfoStruct pPrevious = *ppHead;
 	if (NULL == pCurrent)
 		return 0;
-	else if (userId ==(*ppHead)->user_id) {
+	else if (userId ==(*ppHead)->userId) {
 		*ppHead = pCurrent->next;
 		free(pCurrent);
 		pCurrent = NULL; 
@@ -148,7 +149,7 @@ int deleteLinkedUserInfo(pUSER_INFO* ppHead,int userId) {
 	else {
 		while (pCurrent != NULL)//插到中间
 		{
-			if (userId == pCurrent->user_id)
+			if (userId == pCurrent->userId)
 			{
 				pPrevious->next = pCurrent->next;
 				return 1;
@@ -162,12 +163,13 @@ int deleteLinkedUserInfo(pUSER_INFO* ppHead,int userId) {
 	return 0;
 }
 /*
-链表是否包含该用户 包含返回1，不包含返回0
+链表是否包含该学生 
+包含返回1，不包含返回0
 */
-int isListContainUserInfo(pUSER_INFO* ppHead, int userId) {
-	pUSER_INFO pCurrent = *ppHead;
+int isListContainStudentInfo(pStudentInfoStruct* ppHead, int userId) {
+	pStudentInfoStruct pCurrent = *ppHead;
 	while (pCurrent != NULL) {
-		if (userId==pCurrent->user_id)
+		if (userId==pCurrent->userId)
 			return 1;
 		pCurrent = pCurrent->next;
 	}
