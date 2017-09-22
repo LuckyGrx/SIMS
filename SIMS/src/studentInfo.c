@@ -1,6 +1,6 @@
-#include "system.h"
-#include "studentInfo.h"
-#include "linkedList.h"
+#include "../include/system.h"
+#include "../include/studentInfo.h"
+#include "../include/linkedList.h"
 
 /*
 学生  通过id查询学生信息

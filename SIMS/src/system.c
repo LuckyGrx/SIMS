@@ -1,4 +1,4 @@
-#include "system.h"
+#include "../include/system.h"
 
 /*
 初始化账户链表和学生信息链表
@@ -41,7 +41,7 @@ void printSystemTitle() {
 			for (int i = 0; i < TITLE_LEN; ++i)
 				printf("-");
 		}
-		else if (k >= 1 && k < 1 + TITLE_WID || k >= TITLE_WID + 2 && k <TITLE_WID * 2 + 2) {
+		else if ((k >= 1 && k < 1 + TITLE_WID) || (k >= TITLE_WID + 2 && k <TITLE_WID * 2 + 2)) {
 			for (int j = 0; j < TITLE_LEN; ++j) {
 				if (j == 0 || j == 1 || j == 2 || j == TITLE_LEN - 1 || j == TITLE_LEN - 2 || j == TITLE_LEN - 3)
 					printf("-");
@@ -84,7 +84,7 @@ void printLogin(char* user_name, char* user_pwd) {
 				index--;
 			}
 		}
-		if (!(c >= 'a'&&c <= 'z' || c >= 'A'&&c <= 'Z' || c >= '0'&&c <= '9' || c == '_'))//密码只支持大小写字母、数字和下划线    有bug 
+		if (!((c >= 'a'&&c <= 'z') || (c >= 'A'&&c <= 'Z') || (c >= '0'&&c <= '9') || c == '_'))//密码只支持大小写字母、数字和下划线    有bug 
 			continue;
 		putchar('*');
 		user_pwd[index++] = c;

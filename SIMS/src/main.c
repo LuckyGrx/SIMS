@@ -1,6 +1,6 @@
-#include "system.h"
-#include "studentInfo.h"
-#include "accountInfo.h"
+#include "../include/system.h"
+#include "../include/studentInfo.h"
+#include "../include/accountInfo.h"
 
 int main(int argc,char* argv[]) {
 	pUserAccountStruct pUser_Account_Head=NULL;

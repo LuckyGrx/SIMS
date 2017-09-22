@@ -1,6 +1,6 @@
-#include "system.h"
-#include "accountInfo.h"
-#include "linkedList.h"
+#include "../include/system.h"
+#include "../include/accountInfo.h"
+#include "../include/linkedList.h"
 
 /*
 管理员 增加用户账号
