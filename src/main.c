@@ -3,6 +3,10 @@
 #include "../include/accountInfo.h"
 
 int main(int argc,char* argv[]) {
+	if(argc!=3){
+		printf("args error!\n");
+		return -1;
+	}
 	pUserAccountStruct pUser_Account_Head=NULL;
 	pStudentInfoStruct pUser_Info_Head = NULL;
 	systemInit(argv[1], argv[2], &pUser_Account_Head, &pUser_Info_Head);
@@ -23,17 +27,17 @@ userMenuBegin:
 		printf("请选择要进行的操作:");
 		scanf("%d",&select);
 		controlByStudent(select, &pUser_Info_Head);
-		if (select == 1||select==2) {
+		if (1 == select || 2 ==select) {
 			printf("------------:按回车返回上一级");
 			rewind(stdin);
 			char c;
 			c=getchar();
 			goto userMenuBegin;
-		}else if (select == 3)
+		}else if (3 == select)
 			return 0;
 		else
 			goto userMenuBegin;
-	}else if (user_role == 1) {
+	}else if (1 == user_role) {
 managerMenuBegin:
 		system("cls");//清屏 
 		printSystemTitle();
@@ -42,9 +46,6 @@ managerMenuBegin:
 		int select;
 		printf("请选择要进行的操作:");
 		scanf("%d", &select);
-		//printf("%s\n", MANAGER_MENU[select - 1]);
-		//rewind(stdin);
-		//char c = getchar();
 		controlByManager(argv[1], argv[2], select, &pUser_Account_Head, &pUser_Info_Head);
 		if (select>=1&&select<=8) {
 			printf("------------:按回车返回上一级");
@@ -52,7 +53,7 @@ managerMenuBegin:
 			char c;
 			c = getchar();
 			goto managerMenuBegin;
-		}else if (select == 9)
+		}else if (9 == select)
 			return 0;
 		else
 			goto managerMenuBegin;

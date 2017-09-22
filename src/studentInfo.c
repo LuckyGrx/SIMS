@@ -15,13 +15,14 @@ void serachStudentInfoById(pStudentInfoStruct* ppUser_Info) {
 		if (pCurrent->userId == user_id) {
 			printf("查询成功，该学生信息为:\n");
 			printStudentInfoTitle();
-			printf("%\t\t%d\t\t%s\t\t%5.2f\t\t%5.2f\t\t%5.2f\n", pCurrent->userId, pCurrent->userName, pCurrent->userCourse1Score, pCurrent->userCourse2Score, pCurrent->userCourse3Score);
+			printf("\t\t%d\t\t%s\t\t%5.2f\t\t%5.2f\t\t%5.2f\n", pCurrent->userId, pCurrent->userName, pCurrent->userCourse1Score, pCurrent->userCourse2Score, pCurrent->userCourse3Score);
 			return;
 		}
 		pCurrent = pCurrent->next;
 	}
 	printf("------------:查询失败，该学生不存在\n");
 }
+
 /*
 学生 通过Name查询学生信息
 */
@@ -42,6 +43,7 @@ void serachStudentInfoByName(pStudentInfoStruct* ppUser_Info) {
 	}
 	printf("------------:查询失败，该学生不存在\n");
 }
+
 /*
 管理员 增加学生信息
 */
@@ -61,6 +63,7 @@ void addStudentInfo(const char* User_Info_File_Name, pStudentInfoStruct* ppUser_
 	else
 		printf("------------:新增失败，该学生存在\n");
 }
+
 /*
 管理员 更新学生信息
 */
@@ -79,6 +82,7 @@ void updateStudentInfo(const char* User_Info_File_Name, pStudentInfoStruct* ppUs
 	else
 		printf("------------:更新失败，该学生不存在\n");
 }
+
 /*
 管理员 删除学生信息
 */
@@ -96,6 +100,7 @@ void deleteStudentInfo(const char* User_Info_File_Name, pStudentInfoStruct* ppUs
 		printf("------------:删除失败，该学生不存在\n");
 
 }
+
 /*
 管理员 查询学生信息
 */

@@ -1,5 +1,5 @@
-#ifndef LINKED_LIST
-#define LINKED_LIST
+#ifndef __LINKED_LIST_H__
+#define __LINKED_LIST_H__
 #include "dataStruct.h"
 void headInsertOfUserAccount(pUserAccountStruct*, pUserAccountStruct);//用户账号链表头插法
 void printUserAccount(pUserAccountStruct*);//打印用户账号

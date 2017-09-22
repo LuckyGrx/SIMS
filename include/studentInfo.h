@@ -1,5 +1,5 @@
-#ifndef STUDENT_INFO
-#define STUDENT_INFO
+#ifndef __STUDENT_INFO_H__
+#define __STUDENT_INFO_H__
 #include "dataStruct.h"
 
 void addStudentInfo(const char*, pStudentInfoStruct*);//管理员 增加学生信息

@@ -1,5 +1,5 @@
-#ifndef ACCOUNT_INFO
-#define ACCOUNT_INFO
+#ifndef __ACCOUNT_INFO_H__
+#define __ACCOUNT_INFO_H__
 #include "dataStruct.h"
 
 void addUserAccount(const char*, pUserAccountStruct*);//管理员 增加用户账号

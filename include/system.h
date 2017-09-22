@@ -1,5 +1,5 @@
-#ifndef SYSTEM
-#define SYSTEM
+#ifndef __SYSTEM_H__
+#define __SYSTEM_H__
 
 #include "dataStruct.h"
 #define PRINT_BEGIN {system("cls");printSystemTitle();}

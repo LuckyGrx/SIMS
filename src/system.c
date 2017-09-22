@@ -21,6 +21,7 @@ void systemInit(const char* User_Account_File_Name, const char* User_Info_File_N
 	fclose(fp1);
 	fclose(fp2);
 }
+
 /*
 判断登陆是否合法
 */
@@ -32,6 +33,7 @@ int isLegalAccount(pUserAccountStruct pUser_Account, char* user_name, char* user
 	}
 	return -1;
 }
+
 /*
 打印系统标题
 */
@@ -62,6 +64,7 @@ void printSystemTitle() {
 		printf("\n");
 	}
 }
+
 /*
 打印登陆界面
 */
@@ -92,6 +95,7 @@ void printLogin(char* user_name, char* user_pwd) {
 	user_pwd[index] = '\0';
 	printf("\n");
 }
+
 /*
 打印空格
 */
@@ -110,6 +114,7 @@ void printStudentMenu() {
 		printf("\n");
 	}
 }
+
 /*
 打印管理者菜单
 */
