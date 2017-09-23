@@ -3,8 +3,8 @@
 #include "../include/linkedList.h"
 
 /*
-学生  通过id查询学生信息
-*/
+ *学生  通过id查询学生信息
+ */
 void serachStudentInfoById(pStudentInfoStruct* ppUser_Info) {
 	PRINT_BEGIN;
 	printf("请输入学生学号:");
@@ -24,8 +24,8 @@ void serachStudentInfoById(pStudentInfoStruct* ppUser_Info) {
 }
 
 /*
-学生 通过Name查询学生信息
-*/
+ *学生 通过Name查询学生信息
+ */
 void serachStudentInfoByName(pStudentInfoStruct* ppUser_Info) {
 	PRINT_BEGIN;
 	printf("请输入学生姓名:");
@@ -45,8 +45,8 @@ void serachStudentInfoByName(pStudentInfoStruct* ppUser_Info) {
 }
 
 /*
-管理员 增加学生信息
-*/
+ *管理员 增加学生信息
+ */
 void addStudentInfo(const char* User_Info_File_Name, pStudentInfoStruct* ppUser_Info) {
 	PRINT_BEGIN;
 	printStudentInfoTitle();
@@ -65,8 +65,8 @@ void addStudentInfo(const char* User_Info_File_Name, pStudentInfoStruct* ppUser_
 }
 
 /*
-管理员 更新学生信息
-*/
+ *管理员 更新学生信息
+ */
 void updateStudentInfo(const char* User_Info_File_Name, pStudentInfoStruct* ppUser_Info) {
 	PRINT_BEGIN;
 	printStudentInfoTitle();
@@ -84,8 +84,8 @@ void updateStudentInfo(const char* User_Info_File_Name, pStudentInfoStruct* ppUs
 }
 
 /*
-管理员 删除学生信息
-*/
+ *管理员 删除学生信息
+ */
 void deleteStudentInfo(const char* User_Info_File_Name, pStudentInfoStruct* ppUser_Info) {
 	PRINT_BEGIN;
 	printf("请输入要删除的学生学号:");
@@ -102,8 +102,8 @@ void deleteStudentInfo(const char* User_Info_File_Name, pStudentInfoStruct* ppUs
 }
 
 /*
-管理员 查询学生信息
-*/
+ *管理员 查询学生信息
+ */
 void serachStudentInfo(pStudentInfoStruct* ppUser_Info) {
 	PRINT_BEGIN;
 	printStudentInfoTitle();
@@ -111,8 +111,8 @@ void serachStudentInfo(pStudentInfoStruct* ppUser_Info) {
 }
 
 /*
-保存学生信息链表到文件中
-*/
+ *保存学生信息链表到文件中
+ */
 void saveStudentInfoDataToFile(const char* User_Info_File_Name, pStudentInfoStruct* ppUser_Info) {
 	FILE* fp = fopen(User_Info_File_Name, "w+");
 	if (NULL == fp) {
@@ -133,8 +133,8 @@ void saveStudentInfoDataToFile(const char* User_Info_File_Name, pStudentInfoStru
 }
 
 /*
-打印学生信息标题
-*/
+ *打印学生信息标题
+ */
 void printStudentInfoTitle() {
 	printf("\t\t学号\t\t姓名\t\t科目一\t\t科目二\t\t科目三\n");
 }

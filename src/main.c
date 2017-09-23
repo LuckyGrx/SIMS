@@ -22,14 +22,16 @@ userMenuBegin:
 		system("cls");//清屏 
 		printSystemTitle();
 		printStudentMenu();
-		rewind(stdin);
+		//rewind(stdin);
+		fflush(stdin);
 		int select;
 		printf("请选择要进行的操作:");
 		scanf("%d",&select);
 		controlByStudent(select, &pUser_Info_Head);
 		if (1 == select || 2 ==select) {
 			printf("------------:按回车返回上一级");
-			rewind(stdin);
+			//rewind(stdin);
+			fflush(stdin);
 			char c;
 			c=getchar();
 			goto userMenuBegin;
@@ -42,14 +44,16 @@ managerMenuBegin:
 		system("cls");//清屏 
 		printSystemTitle();
 		printManagerMenu();
-		rewind(stdin);
+		//rewind(stdin);
+		fflush(stdin);
 		int select;
 		printf("请选择要进行的操作:");
 		scanf("%d", &select);
 		controlByManager(argv[1], argv[2], select, &pUser_Account_Head, &pUser_Info_Head);
 		if (select>=1&&select<=8) {
 			printf("------------:按回车返回上一级");
-			rewind(stdin);
+			//rewind(stdin);
+			fflush(stdin);
 			char c;
 			c = getchar();
 			goto managerMenuBegin;
@@ -60,7 +64,8 @@ managerMenuBegin:
 	}else {
 		printf("------------:用户名或密码错误\n");
 		printf("------------:按回车键返回上一级，其他键退出");
-		rewind(stdin);
+	//	rewind(stdin);
+	    fflush(stdin);
 		char c;
 		c = getchar();
 		if (c == '\n')

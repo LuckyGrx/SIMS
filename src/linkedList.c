@@ -1,7 +1,8 @@
 #include "../include/linkedList.h"
+
 /*
-用户账号链表头插法
-*/
+ *用户账号链表头插法
+ */
 void headInsertOfUserAccount(pUserAccountStruct* ppHead, pUserAccountStruct user_account) {
 	pUserAccountStruct pNew = (pUserAccountStruct)malloc(sizeof(userAccountStruct));
 	strcpy(pNew->userName ,user_account->userName);
@@ -15,9 +16,10 @@ void headInsertOfUserAccount(pUserAccountStruct* ppHead, pUserAccountStruct user
 		*ppHead = pNew;
 	}
 }
+
 /*
-打印用户账号
-*/
+ *打印用户账号
+ */
 void printUserAccount(pUserAccountStruct* ppHead) {
 	pUserAccountStruct pCurrent = *ppHead;
 	while (pCurrent != NULL) {
@@ -25,10 +27,11 @@ void printUserAccount(pUserAccountStruct* ppHead) {
 		pCurrent = pCurrent->next;
 	}
 }
+
 /*
-更新用户账号
-更新成功返回1，更新失败返回0
-*/
+ *更新用户账号
+ *更新成功返回1，更新失败返回0
+ */
 int updateListUserAccount(pUserAccountStruct* ppHead,pUserAccountStruct pUserAccount) {
 	pUserAccountStruct pCurrent = *ppHead;
 	while (pCurrent != NULL) {
@@ -41,10 +44,11 @@ int updateListUserAccount(pUserAccountStruct* ppHead,pUserAccountStruct pUserAcc
 	}
 	return 0;
 }
+
 /*
-删除用户账号
-删除成功返回1，删除失败返回0
-*/
+ *删除用户账号
+ *删除成功返回1，删除失败返回0
+ */
 int deleteListUserAccount(pUserAccountStruct* ppHead, char* userName) {
 	pUserAccountStruct pCurrent = *ppHead;
 	pUserAccountStruct pPrevious = *ppHead;
@@ -72,10 +76,11 @@ int deleteListUserAccount(pUserAccountStruct* ppHead, char* userName) {
 	}
 	return 0;
 }
+
 /*
-链表是否包含该账号 
-包含1，不包含返回0
-*/
+ *链表是否包含该账号 
+ *包含返回1，不包含返回0
+ */
 int isListContainUserAccount(pUserAccountStruct* ppHead, char* userName) {
 	pUserAccountStruct pCurrent = *ppHead;
 	while (pCurrent != NULL) {
@@ -85,9 +90,10 @@ int isListContainUserAccount(pUserAccountStruct* ppHead, char* userName) {
 	}
 	return 0;
 }
+
 /*
-学生信息链表头插法
-*/
+ *学生信息链表头插法
+ */
 void headInsertOfStudentInfo(pStudentInfoStruct* ppHead, pStudentInfoStruct user_info) {
 	pStudentInfoStruct pNew = (pStudentInfoStruct)malloc(sizeof(studentInfoStruct));
 	pNew->userId = user_info->userId;
@@ -103,9 +109,10 @@ void headInsertOfStudentInfo(pStudentInfoStruct* ppHead, pStudentInfoStruct user
 		*ppHead = pNew;
 	}
 }
+
 /*
-打印学生信息
-*/
+ *打印学生信息
+ */
 void printStudentInfo(pStudentInfoStruct* ppHead) {
 	pStudentInfoStruct pCurrent = *ppHead;
 	while (pCurrent != NULL) {
@@ -113,10 +120,11 @@ void printStudentInfo(pStudentInfoStruct* ppHead) {
 		pCurrent = pCurrent->next;
 	}
 }
+
 /*
-更新学生信息
-存在该更新用户返回1，不存在返回0
-*/
+ *更新学生信息
+ *存在该更新用户返回1，不存在返回0
+ */
 int updateListStudentInfo(pStudentInfoStruct* ppHead, pStudentInfoStruct pUserInfo) {
 	pStudentInfoStruct pCurrent = *ppHead;
 	while (pCurrent != NULL) {
@@ -131,10 +139,11 @@ int updateListStudentInfo(pStudentInfoStruct* ppHead, pStudentInfoStruct pUserIn
 	}
 	return 0;
 }
+
 /*
-删除学生信息  
-删除成功返回1，删除失败返回0
-*/
+ *删除学生信息  
+ *删除成功返回1，删除失败返回0
+ */
 int deleteListStudentInfo(pStudentInfoStruct* ppHead,int userId) {
 	pStudentInfoStruct pCurrent = *ppHead;
 	pStudentInfoStruct pPrevious = *ppHead;
@@ -162,10 +171,11 @@ int deleteListStudentInfo(pStudentInfoStruct* ppHead,int userId) {
 	}
 	return 0;
 }
+
 /*
-链表是否包含该学生 
-包含返回1，不包含返回0
-*/
+ *链表是否包含该学生 
+ *包含返回1，不包含返回0
+ */
 int isListContainStudentInfo(pStudentInfoStruct* ppHead, int userId) {
 	pStudentInfoStruct pCurrent = *ppHead;
 	while (pCurrent != NULL) {

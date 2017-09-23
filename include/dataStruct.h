@@ -1,6 +1,7 @@
-#ifndef DATA_STRUCT
-#define DATA_STRUCT
+#ifndef __DATA_STRUCT_H__
+#define __DATA_STRUCT_H__
 #include "constInfo.h"
+
 typedef struct userAccountStruct {//用户账号结构体
 	char userName[USER_NAME_LEN];
 	char userPwd[USER_PWD_LEN];
@@ -15,5 +16,6 @@ typedef struct studentInfoStruct {//学生信息结构体
 	float userCourse3Score;
 	struct studentInfoStruct* next;
 }studentInfoStruct, *pStudentInfoStruct;
+
 #endif // DATA_STRUCT
 

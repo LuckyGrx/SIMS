@@ -1,7 +1,7 @@
 #ifndef __SYSTEM_H__
 #define __SYSTEM_H__
-
 #include "dataStruct.h"
+
 #define PRINT_BEGIN {system("cls");printSystemTitle();}
 
 void systemInit(const char*, const char*, pUserAccountStruct*, pStudentInfoStruct*);//初始化用户信息链表和用户账号链表
@@ -16,4 +16,5 @@ void controlByStudent(int, pStudentInfoStruct* ppUser_Info);//学生菜单跳转控制
 void printSpace(int);//打印空格
 void printStudentMenu();//打印学生菜单
 void printManagerMenu();//打印老师菜单
+
 #endif

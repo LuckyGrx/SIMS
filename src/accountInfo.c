@@ -3,8 +3,8 @@
 #include "../include/linkedList.h"
 
 /*
-管理员 增加用户账号
-*/
+ *管理员 增加用户账号
+ */
 void addUserAccount(const char* User_Account_File_Name, pUserAccountStruct* ppUser_Account) {
 	PRINT_BEGIN;
 	printUserAccountTitle();
@@ -22,8 +22,8 @@ void addUserAccount(const char* User_Account_File_Name, pUserAccountStruct* ppUs
 		printf("------------:新增失败，该账户存在\n");
 }
 /*
-管理员 更新用户账号
-*/
+ *管理员 更新用户账号
+ */
 void updateUserAccount(const char* User_Account_File_Name, pUserAccountStruct* ppUser_Account) {
 	PRINT_BEGIN;
 	printUserAccountTitle();
@@ -40,8 +40,8 @@ void updateUserAccount(const char* User_Account_File_Name, pUserAccountStruct* p
 		printf("------------:更新失败，该账户不存在\n");
 }
 /*
-管理员 删除用户账号
-*/
+ *管理员 删除用户账号
+ */
 void deleteUserAccount(const char* User_Account_File_Name, pUserAccountStruct* ppUser_Account) {
 	PRINT_BEGIN;
 	printf("请输入要删除的账户姓名:");
@@ -57,8 +57,8 @@ void deleteUserAccount(const char* User_Account_File_Name, pUserAccountStruct* p
 
 }
 /*
-管理员 查询用户账号
-*/
+ *管理员 查询用户账号
+ */
 void serachUserAccount(pUserAccountStruct* ppUser_Account) {
 	PRINT_BEGIN;
 	printUserAccountTitle();
@@ -66,15 +66,15 @@ void serachUserAccount(pUserAccountStruct* ppUser_Account) {
 }
 
 /*
-打印用户账号标题
-*/
+ *打印用户账号标题
+ */
 void printUserAccountTitle() {
 	printf("\t\t\t\t姓名\t\t密码\t\t角色\n");
 }
 
 /*
-保存用户账号链表到文件中
-*/
+ *保存用户账号链表到文件中
+ */
 void saveUserAccountDataToFile(const char* User_Account_File_Name, pUserAccountStruct* ppUser_Account) {
 	FILE* fp = fopen(User_Account_File_Name, "w+");
 	if (NULL == fp) {
